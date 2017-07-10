@@ -1,0 +1,106 @@
+html{
+    touch-action: manipulation;
+    -webkit-text-size-adjust:100%;
+    font-family:"San Francisco","Roboto","Arial",sans-serif;
+    background: #f2f2f2;
+    color: rgb(111, 111, 111);
+}
+body{margin: 0;}
+html,body{height: 100%; overflow: hidden;}
+.no-select{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.hide{display: none;}
+.not-visible{opacity: 0;}
+
+#tabs{ height: 30px; width: 100%; background: white; box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px}
+#tabs #menu-icon{width: 20px; height: 20px; padding: 5px; cursor: pointer; float: left; margin-right: 5px;}
+#tabs #menu-title{line-height: 30px; cursor: pointer;}
+
+#tabs #menu-content{position: fixed; top: 30px; left: 0; bottom: 0; background: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.14) 2px 0 2px 0px; width: 280px}
+#tabs #menu-content #group{margin-bottom: 20px; margin-top: 10px;}
+#tabs #menu-content #group span.active{border-bottom: 2px solid rgb(111,111,111);}
+#tabs #menu-content #group span{padding: 0 2px; cursor: pointer; margin-right: 5px;}
+
+#tabs #menu_links{margin: 0 -5px 0 0;}
+#tabs ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+#tabs ul.hide{display: none;}
+#tabs ul li{
+    position: relative;
+    list-style-type: none;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 1px;
+    background: #f2f2f2;
+    margin: 0 5px 5px 0;
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+    padding: 0 5px;
+    color: rgba(111,111,111,0.6);
+}
+#tabs ul li span{position: absolute; bottom: 5px; right: 10px; line-height: initial;}
+#tabs ul li:hover{color: rgb(111,111,111); background: rgba(111,111,111,0.6)}
+#tabs ul li.active{color: rgba(111,111,111,0.3); background: #ffffff;}
+#tabs ul li.shortcut{color: rgb(111,111,111)!important; background: rgba(111,111,111,0.6)!important;}
+
+#view{ height: calc(100% - 30px); width: 100%;}
+#view webview{height: 100%; width: 100%; display: inline-flex;}
+#view webview.hide{height: 0; width: 0; display: inline-flex;}
+#loader{text-align: center; float: right; padding-right: 20px;}
+#loader svg{padding: 5px 0 0 0; width: 20px; height: 20px;}
+
+
+
+
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    padding: 50px 0;
+}
+.modal .container{
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 2px;
+}
+.modal h2{margin: 0 0 10px 0; text-align: center;}
+.modal input{
+    width: 100%;
+    outline: none;
+    margin: 0 0 10px 0;
+    border: none;
+    font-size: 1em;
+    border-bottom: 2px solid rgba(111,111,111, 0.5);
+    color: inherit;
+}
+.modal button{
+    outline: none;
+    font-size: 1em;
+    margin: 10px 2px;
+    width: calc(50% - 4px);
+    border: none;
+    color: white;
+    background: rgb(111,111,111)
+}

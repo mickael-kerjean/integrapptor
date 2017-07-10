@@ -1,0 +1,24 @@
+{
+    "title": "My apps",
+    "initial": {"title": "Search", "url": "https://duckduckgo.com/"},
+    "tabs": [
+        {
+            "name": "Toolbox",
+            "apps": [
+                {"title": "Slack", "url": "https://slack.com/signin"},
+                {"title": "Trello", "url": "https://trello.com/"},
+                {"title": "CI", "url": "https://travis-ci.org/"},
+                {"title": "Code", "url": "https://github.com/"},
+                {"title": "Support", "url": "https://www.zendesk.com/"}
+            ]
+        },
+        {
+            "name": "News",
+            "apps": [
+                {"title": "Hacker News", "url": "https://news.ycombinator.com/"},
+                {"title": "Reddit", "url": "https://reddit.com"},
+                {"title": "BBC", "url": "http://www.bbc.com/"}
+            ]
+        }
+    ]
+}
