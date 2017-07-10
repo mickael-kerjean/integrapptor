@@ -3,6 +3,8 @@ Integrapptor is born from the idea that all the tools I use for work should be i
 
 With Integrapptor, you can create your own app integrating all you need.
 
+![Intregapptor image](https://raw.githubusercontent.com/mickael-kerjean/integrapptor/master/screenshot.jpg)
+
 # Features
 - configurable urls
 - quick access with shortcuts
@@ -20,3 +22,7 @@ npm run package-osx
 npm run package-win
 npm run package-linux
 ```
+
+# Credits
+- made by [Mickael Kerjean](https://mickael.kerjean.me/about)
+- icons from [flaticon](https://flaticon.com)
