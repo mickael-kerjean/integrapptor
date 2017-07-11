@@ -16,6 +16,7 @@ With Integrapptor, you can create your own app integrating all you need.
 # Create your own
 Edit the config.json to fit your needs and build it with:
 ```
+npm install
 npm run build
 ```
 You're now ready to create package for your os:
