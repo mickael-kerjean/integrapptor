@@ -5,6 +5,9 @@ With Integrapptor, you can create your own app integrating all you need.
 
 ![Intregapptor image](https://raw.githubusercontent.com/mickael-kerjean/integrapptor/master/screenshot.jpg)
 
+# Release Note
+- [V1.0.0](https://mickael.kerjean.me/2017/07/11/release-of-integrapptor-v1_0_0/)
+
 # Features
 - configurable urls
 - quick access with shortcuts
