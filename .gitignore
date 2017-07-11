@@ -1,5 +1,4 @@
-server/public/js
-server/public/index.html    
+./config.json    
 node_modules/
 babel_cache/
 release-builds/

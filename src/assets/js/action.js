@@ -156,9 +156,9 @@ const _paint = {
             if($els[k].getAttribute('data-target-url') === state.focus.url){
                 $els[k].setAttribute('class', 'active');
             }
-        }        
+        }
 
-        
+
         // manage the webview
         for(let i=0; i<$pages.length; i++){
             if($pages[i].getAttribute('data-url') === state.focus.url){
@@ -173,26 +173,63 @@ const _paint = {
             $page.setAttribute('src', state.focus.url);
             $page.setAttribute('class', 'not-visible');
             $page.setAttribute('data-url', state.focus.url);
-            $dom.loader().removeAttribute('class');
 
             // setup to open window in another browser
             const openInNewWindow = (e, url) => {ipc.send('new-window', url)};
+
+            // setup loader
+            $dom.loader().removeAttribute('class');
             $page.addEventListener('did-stop-loading', function(){
                 $dom.loader().setAttribute('class', 'hide');
                 $page.removeAttribute('class');
+                navigation_setup($page);
+
+                // navigation buttons
+                $dom.navigate().forward.active.onclick = function(){
+                    $page.goForward();
+                };
+                $dom.navigate().backward.active.onclick = function(){
+                    $page.goBack();
+                };
+                $dom.navigate().refresh.onclick = function(){
+                    $page.reload();
+                };
+                
+
+                // open page in a new window
                 $page.getWebContents().removeListener('new-window', openInNewWindow);
                 $page.getWebContents().on('new-window', openInNewWindow);
+
+                // page listeners
                 $page.getWebContents().on('did-start-loading', function(){
+                    navigation_setup($page);
                     $dom.loader().removeAttribute('class');
                 });
                 $page.getWebContents().on('did-stop-loading', function(){
+                    navigation_setup($page);
                     $dom.loader().setAttribute('class', 'hide');
                 });
             });
+            function navigation_setup($webview){
+                if($webview.getWebContents().canGoBack()){
+                    $dom.navigate().backward.inactive.setAttribute('class', 'hide');
+                    $dom.navigate().backward.active.removeAttribute('class');
+                }else{
+                    $dom.navigate().backward.active.setAttribute('class', 'hide');
+                    $dom.navigate().backward.inactive.removeAttribute('class');
+                }
+                if($webview.getWebContents().canGoForward()){
+                    $dom.navigate().forward.inactive.setAttribute('class', 'hide');
+                    $dom.navigate().forward.active.removeAttribute('class');
+                }else{
+                    $dom.navigate().forward.active.setAttribute('class', 'hide');
+                    $dom.navigate().forward.inactive.removeAttribute('class');                    
+                }
+            }
             $dom.view().appendChild($page);
         }
 
-    },    
+    },
     shortcut: function(state){
         let $els = $dom.app_shortcut();
         if(state.shortcut.step === 2){

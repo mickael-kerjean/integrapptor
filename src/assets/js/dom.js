@@ -14,6 +14,7 @@ module.exports = {
     getPage: (url) => { return document.querySelector(`#view webview[data-url="${url}"]`);},
     getModal: () => { return document.querySelector('.modal') },
     getModalForm: () => { return document.querySelector('form') },
+    navigate: () => {return {refresh: document.querySelector('#refresh'), forward: {active: document.querySelector('#navigate_forward'), inactive: document.querySelector('#navigate_forward_inactive')}, backward: {active: document.querySelector('#navigate_backward'), inactive: document.querySelector('#navigate_backward_inactive')}}},
     getModalFormValues: () => {
         const $els = document.querySelectorAll('form input');
         let values = [];
@@ -27,9 +28,6 @@ module.exports = {
         Array.prototype.slice.call(this.app_shortcut())
             .map(($el) => $el.getAttribute('data-shortcut'))
             .filter((shortcut) => key === shortcut)
-    },
-    createPopup: (type) => {
-        
     }
 };
 
