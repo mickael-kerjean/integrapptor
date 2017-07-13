@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "electron-handlebars": "^2.0.0",
+    "md5": "^2.2.1",
     "open": "0.0.5"
   }
 }

@@ -1,5 +1,6 @@
-const $dom = require('./dom');
+const $dom = require("./dom");
 const ipc = require("electron").ipcRenderer;
+const md5 = require("md5");
 
 const actions = function(){
     let state = null;
@@ -172,6 +173,7 @@ const _paint = {
             const $page = document.createElement('webview');
             $page.setAttribute('src', state.focus.url);
             $page.setAttribute('class', 'not-visible');
+            $page.setAttribute('partition', 'persist:'+md5(state.focus.label+state.focus.url))
             $page.setAttribute('data-url', state.focus.url);
 
             // setup to open window in another browser
